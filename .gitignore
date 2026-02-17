@@ -1,0 +1,14 @@
+# Ignore the virtual environment folder
+venv/
+env/
+__pycache__/
+
+# Ignore Mac system files
+.DS_Store
+
+# Ignore generated outputs
+outputs/
+!outputs/.gitkeep
+
+# Ignore raw data
+*.csv
