@@ -3,9 +3,6 @@ import sys
 import pandas as pd
 import difflib
 
-# ==========================================
-# 5. INTERACTIVE PREDICTION LOOP
-# ==========================================
 def interactive_prediction_loop(model, data, surf_hist, h2h_hist):
     """
     Runs a REPL-style loop for predicting tennis matches.
