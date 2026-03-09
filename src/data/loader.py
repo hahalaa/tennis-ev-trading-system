@@ -34,6 +34,32 @@ def load_atp_data(start_year: int, end_year: int) -> pd.DataFrame:
 
     return pd.concat(yearly_dfs, ignore_index=True)
 
+def load_odds_data(start_year: int, end_year: int) -> pd.DataFrame:
+    """
+    Downloads historical odds data from tennis-data.co.uk 
+    for a given range of years as Excel (.xlsx) files.
+    Requires 'openpyxl' to be installed.
+    """
+    BASE_URL = "http://www.tennis_data.co.uk/{year}/{year}.xlsx"
+    
+    yearly_dfs = []
+    print(f"⬇️  Downloading Odds data from {start_year} to {end_year}...")
+    
+    for year in range(start_year, end_year + 1):
+        try:
+            url = BASE_URL.format(year=year)
+            df = pd.read_excel(url, engine='openpyxl')
+            df["year"] = year
+            yearly_dfs.append(df)
+            print(f"   ✓ Loaded odds for {year}: {len(df)} matches")
+        except Exception as err:
+            print(f"   ✗ Failed to load odds for {year}: {err}")
+            
+    if not yearly_dfs:
+        return pd.DataFrame()
+        
+    return pd.concat(yearly_dfs, ignore_index=True)
+
 def load_cached_data(
     path: Path,
     start_year: int,
