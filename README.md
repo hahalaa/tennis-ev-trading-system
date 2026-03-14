@@ -1,4 +1,4 @@
-# Tennis EV Trading System 🎾💰
+# Tennis EV Trading System
 
 A machine learning pipeline for evaluating ATP singles matches and identifying positive expected value (EV) betting opportunities using historical match data and bookmaker odds.
 
@@ -29,7 +29,7 @@ All features are computed chronologically, using only information available prio
    pip install pandas scikit-learn xgboost matplotlib seaborn
    ```
 2. Set up your virtual environment: source venv/bin/activate
-3. Run the script: python tennis_ev.py
+3. Run the script: python predictor.py
 4. The script will:
 
 - Download ATP match data (cached locally) and historical odds
